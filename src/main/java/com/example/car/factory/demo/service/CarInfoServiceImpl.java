@@ -4,7 +4,9 @@ import com.example.car.factory.demo.dto.CarTypeResponseDto;
 import com.example.car.factory.demo.exception.ApiRequestException;
 import com.example.car.factory.demo.resource.car.ICar;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import java.util.Locale;
 import java.util.logging.Logger;
 
 @Service
@@ -19,6 +21,7 @@ public class CarInfoServiceImpl implements ICarInfoService {
 
         try{
             CarTypeResponseDto carTypeResponseDto = new CarTypeResponseDto();
+            carType = StringUtils.capitalize(carType.toLowerCase(Locale.ENGLISH));
             ICar car = getCarClass(carType);
             carTypeResponseDto.setCarType(car.getType());
 
