@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import javax.validation.constraints.NotNull;
 
-@Builder
 @Data
 @ApiModel(value = "CarType Api model documentation", description = "Model")
 public class CarTypeDto {

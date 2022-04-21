@@ -48,8 +48,8 @@ class CarFactoryControllerTests {
     @DisplayName("Car Factory Controller getCarType()")
     void testGetCarInfo() throws Exception {
 
-        CarTypeDto carTypeDto = CarTypeDto.builder().carType("Sedan").build();
-
+        CarTypeDto carTypeDto = new CarTypeDto();
+        carTypeDto.setCarType("Sedan");
         this.mockMvc.perform(post(API_CAR_FACTORY_PATH + "/car-type")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(carTypeDto))
