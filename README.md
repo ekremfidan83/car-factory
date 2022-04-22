@@ -2,6 +2,11 @@
 # CarFactory Api-Service
 
 The CarFactory project is a sample project that responds to you according to the entered car type.
+
+# Installation
+
+To run the car-factory project, you must first build maven. You can use Intellij Idea.
+
 ## API Usage
 
 #### getCarType
