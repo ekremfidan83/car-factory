@@ -41,6 +41,16 @@ public class ApiExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @ExceptionHandler(value = {ClassNotFoundException.class})
+    public ResponseEntity<ApiException> handleClassNotFoundException(ClassNotFoundException e) {
+        ApiException errorResponse = new ApiException(
+                e.getMessage(),
+                HttpStatus.INTERNAL_SERVER_ERROR,
+                ZonedDateTime.now(ZoneId.of("Z"))
+                );
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     @ExceptionHandler(value = {ApiRequestException.class})
     public ResponseEntity<Object> handleApiRequestException(ApiRequestException ex) {
 

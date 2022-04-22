@@ -1,6 +1,7 @@
 package com.example.car.factory.demo.service;
 
 import com.example.car.factory.demo.dto.CarTypeResponseDto;
+import com.example.car.factory.demo.exception.ApiRequestException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -39,19 +40,17 @@ class CarInfoServiceTests {
 
     @Test
     void getCarType_WhenCarTypeIsNull_MustGiveNull() {
-        carTypeResponseDto = carInfoService.getCarType(null);
-        assertNull(carTypeResponseDto);
+        assertThrows(ApiRequestException.class, () -> carInfoService.getCarType(null));
     }
 
     @Test
     void getCarType_WhenCarTypeIsEmpty_MustGiveNull() {
-        carTypeResponseDto = carInfoService.getCarType("");
-        assertNull(carTypeResponseDto);
+        assertThrows(ApiRequestException.class, () -> carInfoService.getCarType(""));
     }
 
     @Test
     void getCarType_WhenCarTypeIsNotExist_MustGiveException() {
-        assertThrows(IllegalArgumentException.class, () -> carInfoService.getCarType("NotExist"));
+        assertThrows(ApiRequestException.class, () -> carInfoService.getCarType("NotExist"));
     }
 }
 
