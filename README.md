@@ -5,7 +5,7 @@ The CarFactory project is a sample project that responds to you according to the
 
 # Installation
 
-To run the car-factory project, you must first build maven. You can use Intellij Idea.
+To run the car-factory project, you must first build maven. You can use Intellij IDE.
 
 ## API Usage
 
